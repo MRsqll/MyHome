@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyHome</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/elementUI.css">
+
+</head>
+<body>
+    <div id="app">
+        <!-- 头部 -->
+        <mt-header fixed title="点了你心中的家">
+            <router-link to="/" slot="left" style="display: flex;align-items: center;">
+                <mt-button icon="back" class="back">返回</mt-button>
+            </router-link>
+        </mt-header>
+        <!-- 主体内容 -->
+        <div class="main">
+            <el-steps :active="3" align-center>
+                <el-step description="名称"></el-step>
+                <el-step description="型号"></el-step>
+                <el-step description="效果"></el-step>
+                <el-step description="尺寸"></el-step>
+            </el-steps>
+            <mt-swipe :show-indicators="false" :auto="0">
+                <mt-swipe-item  v-if="id ==='' || id === item.id " v-for="(item,index) in images" :key="item.id">
+                    <img :src="item.url" class="img"/>
+                </mt-swipe-item>
+
+            </mt-swipe>
+            <ul class="changeName">
+                <li class="change" :class="{swipeItem : id === item.id}"  v-for="item in changeData" @click="changeImg(item.id)" v-text="item.name">
+
+                </li>
+            </ul>
+        </div>
+        <!-- 底部 -->
+        <footer class="footer">
+            <div class="priceBox">
+                <span class="priceText">
+                    总价
+                    <i >￥</i>
+                    <span class="price" v-text="price"></span>
+                </span>
+            </div>
+            <button class="button" @click.prevent="openCenter">结算</button>
+        </footer>
+        <!-- 信息提示 -->
+        <div v-show="showFlag" class="Box" :class="{show : showFlag === true}">已花费{{price}}元</div>
+    </div>
+</body>
+</html>
+<script src="./js/rem1334.js"></script>
+<script src="./js/rem1080.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js/ElementUI.js"></script>
+<script src="./js/index.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:'Hello',
+            images:[
+                {
+                    id:0,
+                    url:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572871467754&di=c305ed6cb6f1480ef82849d9eab661b9&imgtype=0&src=http%3A%2F%2Fpic.rmb.bdstatic.com%2F9b96abc1f57c018ec799c6d7ff64da22.jpeg%40wm_2%2Ct_55m%2B5a625Y%2B3L%2BeugOe6puaXtuS7ow%3D%3D%2Cfc_ffffff%2Cff_U2ltSGVp%2Csz_30%2Cx_19%2Cy_19',
+
+                },
+                {
+                    id:1,
+                    url:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572871523498&di=d69f59168bfe4b65b3811b293286b450&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170314%2F4edccfc2c26949ec9ce996875dddf185_th.jpg',
+
+                },
+                {
+                    id:2,
+                    url:'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3032929632,2438755476&fm=15&gp=0.jpg',
+
+                },
+                {
+                    id:3,
+                    url:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2002832999,680650580&fm=15&gp=0.jpg',
+
+                },
+                {
+                    id:4,
+                    url:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572871780653&di=008a1f56707075b290bf1c1e223bc84d&imgtype=jpg&src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D119461179%2C136564895%26fm%3D214%26gp%3D0.jpg',
+                },
+            ],
+            changeData:[
+                {
+                    id:0,
+                    name:'门1',
+                },
+                {
+                    id:1,
+                    name:'门2',
+                },
+                {
+                    id:2,
+                    name:'门3',
+                },
+                {
+                    id:3,
+                    name:'门4',
+                },
+                {
+                    id:4,
+                    name:'门5',
+                }
+            ],
+            id:'',
+            price:4000,
+            showFlag:false
+        },
+        methods:{
+            changeImg(id){
+                this.id=id;
+                switch (id){
+                    case 0:
+                        this.price = 4500;
+                        break;
+                    case 1:
+                        this.price = 6000;
+                        break;
+                    case 2:
+                        this.price = 8000;
+                        break;
+                    case 3:
+                        this.price = 10000;
+                        break;
+                    case 4:
+                        this.price =12000;
+                        break;
+                    default:
+                        this.price = 4000;
+                        break;
+                }
+            },
+            openCenter() {
+                this.showFlag = true;
+            }
+        },
+        beforeUpdate(){
+            setTimeout(()=>{
+                this.showFlag =false
+            },3000)
+        }
+    })
+</script>

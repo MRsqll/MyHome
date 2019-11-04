@@ -1,0 +1,126 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+}
+.back{
+    font-size: 4vw;
+    color: white;
+}
+.mint-header{
+    height: 10.67vw;
+    font-size: 5vw;
+}
+.main{
+    padding: 19vw 6.4vw 0;
+}
+.img{
+    width: 87vw;
+    height: 40vh;
+}
+.change{
+    width: 40vw;
+    height: 40vh;
+}
+.mint-swipe{
+    height: 40vh;
+    margin-top: 11vw;
+}
+.changeName{
+    margin-top: 4vh;
+    display: flex;
+    justify-content: space-between;
+}
+.change{
+    display: block;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    border: 1vw solid #a9acb1;
+    font-size: 4vw;
+    text-align: center;
+    line-height: 10vw;
+}
+.change.swipeItem{
+    border: 1vw solid #cf9236;
+}
+.el-step__icon.is-text{
+    border: 0.2vw solid !important;
+}
+.el-step__main{
+    margin-top: 4vw !important;
+}
+.el-step__icon{
+    width: 8vw !important;
+    height: 8vw !important;
+    font-size: 4vw !important;
+}
+.el-step__description {
+    font-size: 4vw !important;
+    line-height: 2vw !important;
+}
+.footer {
+    width: 100vw;
+    height: 20vw;
+    border-top: 0.7vw solid #eaeaea;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 3vw;
+    box-sizing: border-box;
+    z-index: 3;
+}
+.button{
+    width: 30vw;
+    height: 6vh;
+    background-color: #3a8ee6;
+    border-radius: 50vw;
+    color: white;
+    font-size: 6vw;
+    margin-top: 2vw;
+}
+.priceText{
+    color: #939aa9;
+    font-size: 5vw;
+}
+i{
+    font-size: 4vw;
+}
+.price{
+    color: #32adea;
+    font-size: 6vw;
+}
+.el-button{
+    font-size: 6vw !important;
+}
+.el-button.is-round{
+    border-radius: 50vw !important;
+}
+.Box {
+    width: 78vw;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 2vw;
+    z-index: 2;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 10vh;
+    font-size: 8vw;
+    color: #ccc;
+    display: none;
+}
+.show{
+    display: block;
+}
